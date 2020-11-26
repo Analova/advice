@@ -7,10 +7,10 @@ class App extends React.Component {
   state = { advice: "" };
 
   componentDidMount() {
-    this.fectAdvice();
+    this.fechAdvice();
   }
 
-  fectAdvice = () => {
+  fechAdvice = () => {
     axios
       .get("https://api.adviceslip.com/advice")
       .then((response) => {
@@ -25,8 +25,13 @@ class App extends React.Component {
   render() {
     const { advice } = this.state;
     return (
-      <div className="App">
-        <h1>{advice} </h1>
+      <div className="app">
+        <div className="card">
+          <h1 classname="heading">{advice} </h1>
+          <button className="button" onClick={this.fechAdvice}>
+            <span>GIVE ME ADVICE!</span>
+          </button>
+        </div>
       </div>
     );
   }
